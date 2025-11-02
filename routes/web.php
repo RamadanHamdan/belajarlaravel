@@ -18,8 +18,18 @@ Route::get('/contact', function () {
 });
 
 Route::get('/posts', function () {
-    $posts = Post::all();
-    return view('posts', ['title' => 'Blog Page', 'posts' => $posts ]);
+    $posts = Post::latest();
+    
+    // Search Title
+    if(request('search')) {
+        // dd(request('search'));
+        // Filter the query
+        // dd('cari : ' . request('search'));
+        // dd($posts->where('title', 'like', '%' . request('search') . '%')->get());
+        // Apply the filter to the existing query
+        $posts->where('title', 'like', '%' . request('search') . '%');
+    }
+    return view('posts', ['title' => 'Blog Page', 'posts' => $posts->get()]);
 });
 
 Route::get('/authors/{user:username}', function (User $user) {

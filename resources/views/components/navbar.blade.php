@@ -1,4 +1,4 @@
-<nav class="bg-pink-400" x-data="{ isOpen: false }">
+<nav class="bg-pink-400 relative after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10" x-data="{ isOpen: false }">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">

@@ -15,6 +15,8 @@ class Post extends Model
         'author',
         'body',
     ];
+    // Eager load the author and category relationships
+    protected $with = ['author', 'category'];
 
     public function author(): BelongsTo
     {
